@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Roundabout Test</title>
+	<style rel="stylesheet" type="text/css" media="screen">
+	body{background:#0f0f0f; color:#eee;}
+		.roundabout-holder {
+			padding: 0;
+			margin: 0 auto;
+			height: 400px;
+			width: 620px;
+		}
+		
+		.roundabout-moveable-item {
+			height: 400px;
+			width: 320px;
+			cursor: pointer;
+			border:1px solid black;
+			display:block;
+		}
+		
+		.roundabout-moveable-item img {
+			height: 100%;
+			width: 100%;
+		}
+		
+		.roundabout-in-focus {
+			cursor: auto;
+		}
+		
+		#carousel-descriptions {
+			list-style:none;
+			display:block;
+			width:850px;
+			margin:25px auto;
+			padding:0;
+		}
+		
+		#carousel-descriptions li {
+			font-size:24px;
+			font-weight:bold;
+			text-align:center;
+			display:none;
+		}
+		
+		#carousel-descriptions li.current {
+			display:block;
+		}
+		
+		#carousel-controls {
+			max-width:900px;
+			width:auto;
+			margin:25px auto;
+			overflow:auto;
+			border-collapse:collapse;
+			text-align:center;
+		}
+		
+		#carousel-controls span {
+			width:100px;
+			display:inline-block;
+			font-size:14px;
+			text-align:center;
+			margin:0 5px;
+			padding:5px;
+			cursor:pointer;
+			border:1px solid black;
+			background:#333;			
+		}
+		/*
+		#carousel-controls td span {
+			font-size:14px;
+			text-align:center;
+			margin:0 5px;
+			padding:5px;
+			cursor:pointer;
+			border:1px solid black;
+			background:#333;
+		}*/
+		
+		#carousel-controls .current {
+			background:#600;
+			color:;
+			border-color:#400;
+		}
+	</style>
+</head>
+<body>
+
+<div id="carousel">
+	<img src="slide1.png" alt="" class="slide" />
+	<img src="slide2.png" alt="" class="slide" />
+	<img src="slide3.png" alt="" class="slide" />
+	<img src="slide4.png" alt="" class="slide" />
+	<img src="slide5.png" alt="" class="slide" />
+	<img src="slide6.png" alt="" class="slide" />
+	<img src="slide7.png" alt="" class="slide" />
+</div>
+
+<ul id="carousel-descriptions">
+	<li class="desc current">Slide 1 Description Goes Here</li>
+	<li class="desc">Slide 2 Description Goes Here</li>
+	<li class="desc">Slide 3 Description Goes Here</li>
+	<li class="desc">Slide 4 Description Goes Here</li>
+	<li class="desc">Slide 5 Description Goes Here</li>
+	<li class="desc">Slide 6 Description Goes Here</li>
+	<li class="desc">Slide 7 Description Goes Here</li>
+</ul>
+
+<div id="carousel-controls">
+	<span class="control current">Show Me<br>Slide 1</span>
+	<span class="control">Show Me<br>Slide 2</span>
+	<span class="control">Show Me<br>Slide 3</span>
+	<span class="control">Show Me<br>Slide 4</span>
+	<span class="control">Show Me<br>Slide 5</span>
+	<span class="control">Show Me<br>Slide 6</span>
+	<span class="control">Show Me<br>Slide 7</span>
+</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript" src="jquery.roundabout.min.js"></script>
+<script type="text/javascript">
+(function($) {
+
+var $descriptions = $('#carousel-descriptions').children('li'),
+	$controls = $('#carousel-controls').find('span'),
+	$carousel = $('#carousel')
+		.roundabout({childSelector:"img", minOpacity:1, autoplay:true, autoplayDuration:5000, autoplayPauseOnHover:true })
+		.on('focus', 'img', function() {
+			var slideNum = $carousel.roundabout("getChildInFocus");
+			
+			$descriptions.add($controls).removeClass('current');
+			$($descriptions.get(slideNum)).addClass('current');
+			$($controls.get(slideNum)).addClass('current');
+		});
+
+$controls.on('click dblclick', function() {
+	var slideNum = -1,
+		i = 0, len = $controls.length;
+
+	for (; i<len; i++) {
+		if (this === $controls.get(i)) {
+			slideNum = i;
+			break;
+		}
+	}
+	
+	if (slideNum >= 0) {
+		$controls.removeClass('current');
+		$(this).addClass('current');
+		$carousel.roundabout('animateToChild', slideNum);
+	}
+});
+
+}(jQuery));
+</script>
+
+</body>
+</html>
