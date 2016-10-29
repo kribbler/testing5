@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="store">
+<head>
+<meta charset="UTF-8" />
+<link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+<script type="text/javascript" src="angular.min.js"></script>
+<script type="text/javascript" src="app.js"></script>
+<script type="text/javascript" src="products.js"></script>
+
+<style type="text/css">
+.ng-invalid.ng-dirty {
+	color: #fa787e;
+}
+
+.ng-valid.ng-dirty {
+	color: #78fa89;
+}
+</style>
+</head>
+
+<body>
+	<div class="container">
+	<div ng-controller="StoreController as store">
+		<div ng-repeat="product in store.products | limitTo: 2 | orderBy: '-price'">
+			<div ng-hide="store.product.soldOut">
+				<product-title></product-title>
+				<product-gallery></product-gallery>
+				<p>{{product.description | limitTo: 3}}</p>
+				<em class="pull-right">{{product.date | date:'MM/dd/yyyy'}}</em>
+				<button ng-show="store.product.canPurchase">Add to cart</button>
+
+				<product-panels></product-panels>
+			</div>
+		</div>
+	</div>
+	</div>
+</body>
+</html>

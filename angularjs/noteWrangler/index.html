@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="NoteWrangler">
+<head>
+<meta charset="UTF-8" />
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.1/angular.min.js"></script>
+<script type="text/javascript" src="javascript/app.js"></script>
+
+<style type="text/css">
+.ng-invalid.ng-dirty {
+	color: #fa787e;
+}
+
+.ng-valid.ng-dirty {
+	color: #78fa89;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+	<div class="nav-list">
+		<a href="#/notes"> Notes </a>
+		<a href="#/notes"> Users </a>
+	</div>
+	<div class="container">
+		<div class="main-wrapper">
+			<div ng-view></div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.1/angular-route.min.js" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.1/angular-resource.js" />
+
+</body>
+</html>
