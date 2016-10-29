@@ -1,0 +1,94 @@
+<html>
+<head>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<style type="text/css">
+nav {
+    margin: 0 auto;
+    text-align: center;
+}
+nav ul ul {
+    display: none;
+    width:100%;
+    position:absolute;
+    left:0;
+}
+nav ul li:hover > ul {
+    display: block;
+}
+nav ul {
+    list-style: none;
+    position:relative;
+}
+nav ul li {
+    float: left;
+}
+nav ul li:hover a {
+    color: #000000;
+    margin-bottom:5px;
+    border-top: 1px solid #000000;
+    border-bottom: 1px solid #000000;
+}
+nav ul li a {
+    display: block;
+    padding: 5px 15px;
+    color: #000000;
+    text-decoration: none;
+}
+nav ul ul {
+    border-radius: 0px;
+    padding: 0;
+    position: absolute;
+}
+nav ul ul li {
+    float: none;
+    position: relative;
+}
+nav ul ul li a {
+    color: #000000;
+}
+nav ul ul li a:hover {
+    color: #666666;
+}
+nav ul ul ul {
+    position: absolute;
+    top:0;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8">
+            <nav>
+                <ul>
+                    <li><a href="/view_contacts.php">Contacts</a>
+
+                        <ul>
+                            <li><a href="add_contact.php">Add Contact</a>
+                            </li>
+                            <li><a href="view_contacts.php">View Contacts</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="/tickets.php">Tickets</a>
+
+                        <ul id="secondSubmenu">
+                            <li><a href="new_ticket.php">New Ticket</a>
+                            </li>
+                            <li><a href="tickets.php">View Tickets</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="/invoices.php">Invoices</a>
+                    </li>
+                    <li><a href="/itemised_calls.php">Itemised Calls</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+</body>
