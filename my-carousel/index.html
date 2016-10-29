@@ -1,0 +1,65 @@
+<html>
+
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+<script src="scripts/my-carousel.js"></script>
+</head>
+
+<style type="text/css">
+.my_carousel .image_description {
+	display: none;
+}
+
+.carousel_layout {
+	background: rgba(0,0,0,0.2);
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: none;
+}
+
+.carousel_content {
+	border: 1px solid #000;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+#carousel_image {
+	max-width: 600;
+	max-height: 400;
+}
+</style>
+<body>
+
+<div class="my_carousel">
+	<a href='images/Westport_Sunrise.jpg'>
+		<img width="286" height="190" src="images/Westport_Sunrise-286x190.jpg" class="attachment-gallery_size" alt="DCIM102GOPRO" />
+		<span class="image_description">Image 1</span>
+	</a>
+
+	<a href='images/Westport_Sunrise.jpg'>
+		<img width="286" height="190" src="images/Westport_Sunrise-286x190.jpg" class="attachment-gallery_size" alt="DCIM102GOPRO" />
+	</a>
+
+	<a href='images/cruise_image_03.jpg'><img width="235" height="161" src="images/cruise_image_03.jpg" class="attachment-gallery_size" alt="cruise_image_03" /></a>
+
+	<a href='images/IMGP4503.jpg'><img width="286" height="190" src="images/IMGP4503-286x190.jpg" class="attachment-gallery_size" alt="IMGP4503" /></a>
+</div>
+
+<div class="my_carousel">
+	<a href='images/Westport_Sunrise.jpg'>
+		<img width="286" height="190" src="images/Westport_Sunrise-286x190.jpg" class="attachment-gallery_size" alt="DCIM102GOPRO" />
+		<span class="image_description">Image 1</span>
+	</a>
+
+	<a href='images/Westport_Sunrise.jpg'>
+		<img width="286" height="190" src="images/Westport_Sunrise-286x190.jpg" class="attachment-gallery_size" alt="DCIM102GOPRO" />
+	</a>
+</div>
+</body>
+</html>
