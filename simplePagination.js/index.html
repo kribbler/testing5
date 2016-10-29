@@ -1,0 +1,54 @@
+<html>
+<head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script type="text/javascript" src="jquery.simplePagination.js"></script>
+
+
+
+<link type="text/css" rel="stylesheet" href="simplePagination.css"/>
+<style type="text/css">
+    #page_1, #page_2, #page_3, #page_4, #page_5 {
+    	display: none;
+    }
+    </style>
+
+</head>
+<body>
+<ul id="fb"></ul>
+
+<div id="show_page"></div>
+<div id="page_1">
+	    		content of page 1
+	    	</div>
+	    	<div id="page_2">
+	    		content of page 2
+	    	</div>
+	    	<div id="page_3">
+	    		content of page 3
+	    	</div>
+	    	<div id="page_4">
+	    		content of page 4
+	    	</div>
+	    	<div id="page_5">
+	    		content of page 5
+	    	</div>
+
+<script type="text/javascript">
+$(function() {
+    $("#fb").pagination({
+        items: 5,
+        itemsOnPage: 2,
+        cssStyle: 'light-theme',
+        currentPage: 1,
+        onPageClick(pageNumber, event) {
+        	$('#show_page').html($('#page_' + pageNumber).html());
+        },
+        onInit() {
+        	$('#show_page').html($('#page_1').html());
+        }
+    });
+});
+</script>
+</body>
+</html>
